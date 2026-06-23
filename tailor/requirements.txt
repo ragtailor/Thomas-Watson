@@ -1,0 +1,19 @@
+--extra-index-url https://download.pytorch.org/whl/cu126
+torch==2.12.0+cu126
+torchvision==0.27.0+cu126
+torchaudio
+fastapi==0.136.1
+google-generativeai==0.8.6
+uvicorn[standard]==0.47.0
+sqlalchemy[asyncio]==2.0.49
+psycopg[binary]==3.3.4
+python-dotenv==1.2.2
+pandas==3.0.3
+scikit-learn==1.8.0
+sqlmodel==0.0.38
+alembic==1.18.4
+python-multipart==0.0.20
+kiwipiepy==0.23.1
+ollama
+pytest>=8.0
+pytest-asyncio>=0.23

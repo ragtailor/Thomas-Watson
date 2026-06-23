@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = tailor
+	url = https://github.com/ragtailor/com.ragtailor.api.git
+[submodule "frontend"]
+	path = taylor
+	url = https://github.com/ragtailor/com.ragtailor.www.git

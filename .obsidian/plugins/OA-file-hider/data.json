@@ -1,0 +1,7 @@
+{
+  "hidden": true,
+  "hiddenList": [
+    "tailor/alembic",
+    "taylor/node_modules"
+  ]
+}
