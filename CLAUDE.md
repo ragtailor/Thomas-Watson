@@ -10,9 +10,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```
 com.ragtailor/
-├── tailor/    # FastAPI Python 백엔드
-├── taylor/    # Next.js TypeScript 프론트엔드
-└── taper/     # Flutter 모바일 앱
+├── fastapi/    # FastAPI Python 백엔드
+├── nextjs/     # Next.js TypeScript 프론트엔드
+└── flutter/    # Flutter 모바일 앱
 ```
 
 서브모듈을 처음 받을 때: `git submodule update --init --recursive`
@@ -25,9 +25,9 @@ com.ragtailor/
 
 | 영역 | 문서 |
 |------|------|
-| 백엔드 (tailor) | [tailor/CLAUDE.md](tailor/CLAUDE.md) |
-| 프론트엔드 (taylor) | [taylor/CLAUDE.md](taylor/CLAUDE.md) |
-| 모바일 (taper) | [taper/CLAUDE.md](taper/CLAUDE.md) |
+| 백엔드 (fastapi) | [fastapi/CLAUDE.md](fastapi/CLAUDE.md) |
+| 프론트엔드 (nextjs) | [nextjs/CLAUDE.md](nextjs/CLAUDE.md) |
+| 모바일 (flutter) | [flutter/CLAUDE.md](flutter/CLAUDE.md) |
 
 하위 CLAUDE.md가 루트 지침과 충돌하면 **하위 문서가 우선**한다.
 
@@ -40,11 +40,11 @@ com.ragtailor/
 | 범위 | 위치 |
 |------|------|
 | 공통 (모든 서브모듈에 걸치는 내용) | `_docs/` |
-| 백엔드 전용 | `tailor/_docs/` |
-| 프론트엔드 전용 | `taylor/_docs/` |
-| 모바일 전용 | `taper/_docs/` |
+| 백엔드 전용 | `fastapi/_docs/` |
+| 프론트엔드 전용 | `nextjs/_docs/` |
+| 모바일 전용 | `flutter/_docs/` |
 
-앱 단위의 세부 문서는 `tailor/apps/<앱명>/_docs/`에 둔다.
+앱 단위의 세부 문서는 `fastapi/apps/<앱명>/_docs/`에 둔다.
 
 ---
 
