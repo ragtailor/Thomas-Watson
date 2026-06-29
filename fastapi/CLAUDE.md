@@ -93,15 +93,18 @@ apps/<앱명>/
 
 ## 앱 목록
 
-| 앱 | 역할 | CLAUDE.md |
-|----|------|-----------|
-| `titanic` | 타이타닉 승객 CSV 업로드·조회 (ML 교육용) | [apps/titanic/_docs/CLAUDE.md](apps/titanic/_docs/CLAUDE.md) |
-| `kingsman` | 사용자·관리자 관리 | — |
-| `lion_king` | 소셜 기능 (스켈레톤) | — |
-| `sherlock_homes` | 문서 분석 | — |
-| `jobs` | DB 헬스체크 | — |
+| 앱 | 역할 | 토폴로지 | CLAUDE.md |
+|----|------|----------|-----------|
+| `star_craft` | 온톨로지 인덱스, 컨텍스트 라우팅, 앱 간 오케스트레이션 | **Hub** | — |
+| `silicon_valley` | AI 에이전트, 문서 벡터 | Spoke | — |
+| `harry_porter` | (미정) | Spoke | — |
+| `titanic` | 타이타닉 승객 CSV 업로드·조회 (ML 교육용) | Spoke | [apps/titanic/_docs/CLAUDE.md](apps/titanic/_docs/CLAUDE.md) |
+| `kingsman` | 사용자·관리자 관리 | Spoke | — |
+| `lion_king` | 소셜 기능 (스켈레톤) | Spoke | — |
+| `sherlock_homes` | 문서 분석 | Spoke | — |
+| `jobs` | DB 헬스체크 | Spoke | — |
 
-새 앱을 추가할 때 위 표에 행을 추가하고, `apps/<앱명>/_docs/CLAUDE.md`를 생성한다.
+새 앱을 추가할 때 위 표에 행을 추가하고, 토폴로지 역할(Hub/Spoke)을 명시한 뒤 `apps/<앱명>/_docs/CLAUDE.md`를 생성한다.
 
 ---
 
@@ -144,6 +147,75 @@ python -m pytest apps/titanic/tests/ -v   # 앱별
 |------|------|------|
 | **interval** (등간) | 일정한 측정 구간, 절대적 원점 없음 — 배율 비교 불가 | 온도, pH, 시간대 |
 | **ratio** (비율) | 절대적 원점(0)이 존재 — 배율 비교 가능 | 나이, 금액, 몸무게 |
+
+---
+
+## 스타 토폴로지 아키텍처 (Star Topology)
+
+헥사고날 클린 아키텍처(선형 구조)를 **기반**으로 유지하면서, 앱 간 통신에는 **비선형 스타 토폴로지**를 추가로 적용한다. 두 구조는 중첩된다.
+
+### Hub / Spoke 역할
+
+| 역할 | 앱 | 책임 |
+|------|-----|------|
+| **Hub** | `star_craft` | 전역 온톨로지 인덱스, 컨텍스트 라우팅, 앱 간 오케스트레이션 |
+| Spoke | 그 외 모든 앱 | 독립 도메인 로직; 타 앱과의 통신은 반드시 hub를 경유 |
+
+### 의존성 방향 규칙
+
+```
+spoke → hub        ✅ 허용
+hub   → spoke      ✅ 허용 (오케스트레이션 목적)
+spoke → spoke      ❌ 금지 — 순환 참조·결합도 증가 유발
+```
+
+스포크 간 직접 임포트가 필요해 보이는 경우, hub(`star_craft`)에 오케스트레이션 로직을 추가하는 것이 올바른 방법이다.
+
+---
+
+## 하네스 엔지니어링 (Harness Engineering)
+
+안드레이 카파시의 하네스 엔지니어링 철학: **평가·테스트·정적 분석·제약 조건을 촘촘히 배선하여 코드와 데이터의 무결성을 보호한다.**
+
+비선형 스타 토폴로지는 잘못된 연결이 눈에 잘 띄지 않는다. 아래 도구들이 구조 무결성을 자동으로 강제한다.
+
+| 레이어 | 도구 | 설정 파일 | 검증 대상 |
+|--------|------|-----------|-----------|
+| Python import | `import-linter` | `.importlinter` | spoke → spoke 직접 임포트 금지 |
+| MD 온톨로지 노드 | `markdownlint` | `.markdownlint.json` | 메타데이터 구조, 링크 형식 |
+| 토폴로지 그래프 | `validate_harness.py` | `scripts/validate_harness.py` | 고립 노드, spoke↔spoke 직접 연결, 순환 참조 |
+
+### 온톨로지 MD 파일 프론트매터 스키마
+
+`_docs/` 하위 모든 MD 파일은 아래 프론트매터를 포함해야 한다.
+
+```yaml
+---
+type: spoke          # hub 또는 spoke
+app: silicon_valley  # 이 문서가 속한 앱 이름
+links:               # 연결되는 다른 앱(노드) 목록
+  - star_craft
+---
+```
+
+`type: hub`는 `star_craft` 앱 전용이다. 스포크는 반드시 `star_craft`를 `links`에 포함해야 한다.
+
+### 검증 실행
+
+```bash
+cd tailor
+
+# Python import 의존성 검증
+lint-imports
+
+# MD 린트
+markdownlint "**/_docs/**/*.md"
+
+# 토폴로지 하네스 검증 (fastapi 루트 기준)
+python scripts/validate_harness.py
+```
+
+PR 병합 전 세 가지 검증이 모두 통과해야 한다.
 
 ---
 

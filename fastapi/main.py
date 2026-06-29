@@ -2,11 +2,19 @@
 import logging
 import sys
 import os
+import types
 from contextlib import asynccontextmanager
 
 _tailor_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(_tailor_root))        # com.ragtaylor/ → tailor 패키지
 sys.path.insert(0, os.path.join(_tailor_root, "apps"))   # tailor/apps/  → titanic 등 앱
+
+# 디렉터리가 tailor/ → fastapi/ 로 변경되면서 'tailor' 패키지를 못 찾는 문제 해결.
+# sys.modules에 alias를 등록해 from tailor.xxx import ... 가 fastapi/ 를 가리키게 한다.
+_tailor_alias = types.ModuleType("tailor")
+_tailor_alias.__path__ = [_tailor_root]
+_tailor_alias.__package__ = "tailor"
+sys.modules.setdefault("tailor", _tailor_alias)
 
 # Windows: psycopg async는 SelectorEventLoop 필요 (ProactorEventLoop 미지원)
 if sys.platform == "win32":
@@ -17,6 +25,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from core.matrix.grid_oracle_database_manager import dispose_engine, get_db, init_engine, create_all_tables
 from tailor.apps.titanic.adapter.inbound.api import titanic_router
+from star_craft.adapter.inbound.api import star_craft_router
 
 
 def _configure_logging() -> None:
@@ -57,6 +66,7 @@ app.add_middleware(
 )
 
 app.include_router(titanic_router, prefix="/api")
+app.include_router(star_craft_router, prefix="/api")
 
 @app.get("/")
 def read_root():

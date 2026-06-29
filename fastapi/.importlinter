@@ -1,0 +1,77 @@
+# import-linter — Star Topology Harness (Python 의존성 정적 분석)
+#
+# Harness Engineering 핵심 설정:
+# spoke → spoke 직접 임포트를 정적 분석 단계에서 차단한다.
+# 모든 앱 간 통신은 반드시 hub(star_craft)를 경유해야 한다.
+#
+# 설치: pip install import-linter
+# 실행: cd tailor && lint-imports
+
+[importlinter]
+root_packages =
+    star_craft
+    titanic
+    kingsman
+    lion_king
+    sherlock_homes
+    silicon_valley
+    harry_porter
+    jobs
+include_external_packages = True
+
+[importlinter:contract:star-topology-no-spoke-to-spoke]
+# STAR TOPOLOGY RULE
+# spoke 앱이 다른 spoke 앱을 직접 임포트하는 것을 금지한다.
+# 위반 시 허브-스포크 구조가 무너져 결합도가 선형으로 증가한다.
+# 해결책: 필요한 로직을 star_craft 허브에 오케스트레이션 레이어로 추가하라.
+name = No direct spoke-to-spoke imports — route through star_craft hub
+type = forbidden
+source_modules =
+    titanic
+    kingsman
+    lion_king
+    sherlock_homes
+    silicon_valley
+    harry_porter
+    jobs
+forbidden_modules =
+    titanic
+    kingsman
+    lion_king
+    sherlock_homes
+    silicon_valley
+    harry_porter
+    jobs
+
+[importlinter:contract:clean-arch-adapter-to-domain]
+# CLEAN ARCHITECTURE RULE (선형 구조 무결성 유지)
+# adapter 계층이 domain을 역방향으로 참조하지 않도록 강제한다.
+# adapter → app → domain 방향만 허용된다.
+name = adapter layer must not be imported by domain or app layers
+type = forbidden
+source_modules =
+    star_craft.domain
+    star_craft.app
+    titanic.domain
+    titanic.app
+    kingsman.domain
+    kingsman.app
+    lion_king.domain
+    lion_king.app
+    sherlock_homes.domain
+    sherlock_homes.app
+    silicon_valley.domain
+    silicon_valley.app
+    harry_porter.domain
+    harry_porter.app
+    jobs.domain
+    jobs.app
+forbidden_modules =
+    star_craft.adapter
+    titanic.adapter
+    kingsman.adapter
+    lion_king.adapter
+    sherlock_homes.adapter
+    silicon_valley.adapter
+    harry_porter.adapter
+    jobs.adapter

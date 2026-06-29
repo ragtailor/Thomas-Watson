@@ -8,17 +8,24 @@
   "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "path:taylor",
+      "query": "path:nextjs",
       "color": {
         "a": 1,
         "rgb": 14048348
       }
     },
     {
-      "query": "path:tailor",
+      "query": "path:fastapi",
       "color": {
         "a": 1,
         "rgb": 793581
+      }
+    },
+    {
+      "query": "path:flutter",
+      "color": {
+        "a": 1,
+        "rgb": 11392604
       }
     }
   ],

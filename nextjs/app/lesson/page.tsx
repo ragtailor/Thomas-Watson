@@ -1,3 +1,5 @@
+import { ReportButton } from "@/components/lesson/ReportButton";
+
 export default function LessonPage() {
   return (
     <div className="flex h-full flex-col">
@@ -38,6 +40,7 @@ export default function LessonPage() {
             </ul>
           </div>
         </div>
+        <ReportButton />
       </div>
     </div>
   );

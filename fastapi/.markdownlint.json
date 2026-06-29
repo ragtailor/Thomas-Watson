@@ -1,0 +1,49 @@
+{
+  "_comment": "markdownlint 설정 — 온톨로지 노드(MD 파일) 구조 강제",
+  "_harness": [
+    "Harness Engineering: MD 파일이 온톨로지 노드로서 올바른 구조를 갖추도록 강제한다.",
+    "frontmatter 유효성은 scripts/validate_harness.py 가 별도로 검증한다.",
+    "설치: npm install -g markdownlint-cli",
+    "실행: markdownlint '**/_docs/**/*.md'"
+  ],
+
+  "default": true,
+
+  "MD013": {
+    "line_length": 120,
+    "heading_line_length": 120,
+    "code_block_line_length": 160,
+    "tables": false
+  },
+
+  "MD024": {
+    "siblings_only": true
+  },
+
+  "MD007": {
+    "indent": 2
+  },
+
+  "MD033": false,
+
+  "MD041": true,
+
+  "MD030": {
+    "ul_single": 1,
+    "ol_single": 1,
+    "ul_multi": 1,
+    "ol_multi": 1
+  },
+
+  "MD046": {
+    "style": "fenced"
+  },
+
+  "MD049": {
+    "style": "asterisk"
+  },
+
+  "MD050": {
+    "style": "asterisk"
+  }
+}

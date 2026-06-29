@@ -11,10 +11,14 @@
             "id": "bb89d32d5fd594ed",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "CLAUDE.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CLAUDE"
             }
           }
         ]
@@ -178,6 +182,8 @@
   },
   "active": "bb89d32d5fd594ed",
   "lastOpenFiles": [
+    "flutter/README.md",
+    "CLAUDE.md",
     "tailor/apps/titanic/app/use_cases/passenger_rose_model_interactor.py.tmp.21264.92e1d9d8f5c9",
     "tailor/apps/titanic/app/use_cases/passenger_cal_tester_interactor.py.tmp.21264.f7e009fc74ad",
     "tailor/apps/titanic/app/use_cases/passenger_jack_trainer_interactor.py.tmp.21264.808bd27952a1",
@@ -188,7 +194,6 @@
     "tailor/apps/titanic/adapter/outbound/ml/survival_strategies.py",
     "tailor/apps/titanic/adapter/outbound/ml/survival_strategies.py.tmp.21264.d8da34c8202a",
     "tailor/apps/titanic/adapter/outbound/ml/__init__.py",
-    "tailor/apps/titanic/adapter/outbound/ml",
     "vault/tailor/CLAUDE.md",
     "tailor/apps/titanic/_docs/CLAUDE.md",
     "tailor/apps/titanic/_docs/titanic-features.md",
@@ -199,7 +204,6 @@
     "tailor/CLAUDE.md",
     "taylor/CLAUDE.md",
     "vault/taylor/CLAUDE.md",
-    "CLAUDE.md",
     "vault/tailor/scaffold-rules.md",
     "vault/tailor/auth-rules.md",
     "vault/tailor/app-rules.md",
