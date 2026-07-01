@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.police_molly_examiner_schema import MollyExaminerSchema
-from tailor.apps.sherlock_homes.app.dtos.police_molly_examiner_dto import MollyExaminerResponse
-from tailor.apps.sherlock_homes.app.ports.input.police_molly_examiner_use_case import MollyExaminerUseCase
-from tailor.apps.sherlock_homes.dependencies.police_molly_examiner_provider import get_molly_examiner_use_case
+from sherlock_homes.adapter.inbound.api.schemas.police_molly_examiner_schema import MollyExaminerSchema
+from sherlock_homes.app.dtos.police_molly_examiner_dto import MollyExaminerResponse
+from sherlock_homes.app.ports.input.police_molly_examiner_use_case import MollyExaminerUseCase
+from sherlock_homes.dependencies.police_molly_examiner_provider import get_molly_examiner_use_case
 
 '''
 몰리 후퍼 (Molly)

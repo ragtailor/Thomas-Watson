@@ -5,5 +5,5 @@
 정부 기관 레벨의 거대 글로벌 컨텍스트 및 마스터 지식 베이스를 관리합니다.
 '''
 
-class MycroftLibraraianEntity:
+class MycroftContactEntity:
     pass

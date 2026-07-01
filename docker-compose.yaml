@@ -10,6 +10,7 @@ services:
       - N8N_PROTOCOL=http
       - WEBHOOK_URL=http://localhost:5678
       - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - N8N_SECURE_COOKIE=false
     volumes:
       - n8n_data:/home/node/.n8n
     extra_hosts:
@@ -18,7 +19,7 @@ services:
   # FastAPI 백엔드 서비스
   backend:
     build:
-      context: ./tailor
+      context: ./fastapi
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -34,12 +35,12 @@ services:
   # Next.js 프론트엔드 서비스
   frontend:
     build:
-      context: ./taylor
+      context: ./nextjs
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     env_file:
-      - ./taylor/.env.local
+      - ./nextjs/.env.local
     depends_on:
       - backend
 

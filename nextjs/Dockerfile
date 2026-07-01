@@ -14,7 +14,9 @@ RUN pnpm install --ignore-scripts
 # 5. 나머지 소스 코드 복사
 COPY . .
 
-# 6. Next.js 빌드 진행
+# 6. Next.js 빌드 진행 (빌드 타임 DB 연결 오류 방지용 플레이스홀더)
+ARG DATABASE_URL=postgresql://placeholder:placeholder@placeholder/placeholder
+ENV DATABASE_URL=${DATABASE_URL}
 RUN pnpm build
 
 # 7. Next.js 프로덕션 서버 실행 (3000 포트 오픈)

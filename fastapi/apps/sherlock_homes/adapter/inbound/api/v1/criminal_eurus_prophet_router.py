@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_eurus_prophet_schema import EurusProphetSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_eurus_prophet_dto import EurusProphetResponse
-from tailor.apps.sherlock_homes.app.ports.input.criminal_eurus_prophet_use_case import EurusProphetUseCase
-from tailor.apps.sherlock_homes.dependencies.criminal_eurus_prophet_provider import get_eurus_prophet_use_case
+from sherlock_homes.adapter.inbound.api.schemas.criminal_eurus_prophet_schema import EurusProphetSchema
+from sherlock_homes.app.dtos.criminal_eurus_prophet_dto import EurusProphetResponse
+from sherlock_homes.app.ports.input.criminal_eurus_prophet_use_case import EurusProphetUseCase
+from sherlock_homes.dependencies.criminal_eurus_prophet_provider import get_eurus_prophet_use_case
 
 '''
 유라루스 홈즈 (Eurus)

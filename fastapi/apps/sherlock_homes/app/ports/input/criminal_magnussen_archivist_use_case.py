@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_magnussen_archivist_schema import MagnussenArchivistSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_magnussen_archivist_dto import MagnussenArchivistResponse
+from sherlock_homes.adapter.inbound.api.schemas.criminal_magnussen_archivist_schema import MagnussenArchivistSchema
+from sherlock_homes.app.dtos.criminal_magnussen_archivist_dto import MagnussenArchivistResponse
 
 
 class MagnussenArchivistUseCase(ABC):

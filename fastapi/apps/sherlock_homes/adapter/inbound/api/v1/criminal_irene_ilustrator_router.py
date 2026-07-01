@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_irene_ilustrator_schema import IreneIlustratorSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_irene_ilustrator_dto import IreneIlustratorResponse
-from tailor.apps.sherlock_homes.app.ports.input.criminal_irene_ilustrator_use_case import IreneIlustratorUseCase
-from tailor.apps.sherlock_homes.dependencies.criminal_irene_ilustrator_provider import get_irene_ilustrator_use_case
+from sherlock_homes.adapter.inbound.api.schemas.criminal_irene_ilustrator_schema import IreneIlustratorSchema
+from sherlock_homes.app.dtos.criminal_irene_ilustrator_dto import IreneIlustratorResponse
+from sherlock_homes.app.ports.input.criminal_irene_ilustrator_use_case import IreneIlustratorUseCase
+from sherlock_homes.dependencies.criminal_irene_ilustrator_provider import get_irene_ilustrator_use_case
 
 '''
 아이린 애들러 (Irene)

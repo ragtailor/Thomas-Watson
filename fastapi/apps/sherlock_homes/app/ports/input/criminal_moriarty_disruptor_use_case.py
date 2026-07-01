@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_moriarty_disruptor_schema import MoriartyDisruptorSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_moriarty_disruptor_dto import MoriartyDisruptorResponse
+from sherlock_homes.adapter.inbound.api.schemas.criminal_moriarty_disruptor_schema import MoriartyDisruptorSchema
+from sherlock_homes.app.dtos.criminal_moriarty_disruptor_dto import MoriartyDisruptorResponse
 
 
 class MoriartyDisruptorUseCase(ABC):

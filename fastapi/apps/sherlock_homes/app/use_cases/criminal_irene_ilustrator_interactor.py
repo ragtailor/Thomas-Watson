@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_irene_ilustrator_schema import IreneIlustratorSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_irene_ilustrator_dto import IreneIlustratorQuery, IreneIlustratorResponse
-from tailor.apps.sherlock_homes.app.ports.input.criminal_irene_ilustrator_use_case import IreneIlustratorUseCase
-from tailor.apps.sherlock_homes.app.ports.output.criminal_irene_ilustrator_repository import IreneIlustratorRepository
+from sherlock_homes.adapter.inbound.api.schemas.criminal_irene_ilustrator_schema import IreneIlustratorSchema
+from sherlock_homes.app.dtos.criminal_irene_ilustrator_dto import IreneIlustratorQuery, IreneIlustratorResponse
+from sherlock_homes.app.ports.input.criminal_irene_ilustrator_use_case import IreneIlustratorUseCase
+from sherlock_homes.app.ports.output.criminal_irene_ilustrator_repository import IreneIlustratorRepository
 
 
 class IreneIlustratorInteractor(IreneIlustratorUseCase):

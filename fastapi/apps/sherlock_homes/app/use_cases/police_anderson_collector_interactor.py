@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.police_anderson_collector_schema import AndersonCollectorSchema
-from tailor.apps.sherlock_homes.app.dtos.police_anderson_collector_dto import AndersonCollectorQuery, AndersonCollectorResponse
-from tailor.apps.sherlock_homes.app.ports.input.police_anderson_collector_use_case import AndersonCollectorUseCase
-from tailor.apps.sherlock_homes.app.ports.output.police_anderson_collector_repository import AndersonCollectorRepository
+from sherlock_homes.adapter.inbound.api.schemas.police_anderson_collector_schema import AndersonCollectorSchema
+from sherlock_homes.app.dtos.police_anderson_collector_dto import AndersonCollectorQuery, AndersonCollectorResponse
+from sherlock_homes.app.ports.input.police_anderson_collector_use_case import AndersonCollectorUseCase
+from sherlock_homes.app.ports.output.police_anderson_collector_repository import AndersonCollectorRepository
 
 
 class AndersonCollectorInteractor(AndersonCollectorUseCase):

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { message } = await req.json();
+  const { to, message } = await req.json();
 
   if (!message?.trim()) {
     return NextResponse.json({ error: "메시지를 입력해주세요." }, { status: 400 });
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   const n8nRes = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message }),
+    body: JSON.stringify({ to, message }),
   });
 
   if (!n8nRes.ok) {

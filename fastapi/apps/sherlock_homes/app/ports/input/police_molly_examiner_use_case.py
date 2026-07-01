@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from abc import ABC, abstractmethod
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.police_molly_examiner_schema import MollyExaminerSchema
-from tailor.apps.sherlock_homes.app.dtos.police_molly_examiner_dto import MollyExaminerResponse
+from sherlock_homes.adapter.inbound.api.schemas.police_molly_examiner_schema import MollyExaminerSchema
+from sherlock_homes.app.dtos.police_molly_examiner_dto import MollyExaminerResponse
 
 
 class MollyExaminerUseCase(ABC):

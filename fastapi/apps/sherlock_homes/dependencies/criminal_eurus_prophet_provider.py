@@ -1,11 +1,11 @@
-from fastapi import Depends
+﻿from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from tailor.apps.sherlock_homes.adapter.outbound.pg.criminal_eurus_prophet_pg_repository import EurusProphetPgRepository
-from tailor.apps.sherlock_homes.app.ports.output.criminal_eurus_prophet_repository import EurusProphetRepository
+from sherlock_homes.adapter.outbound.repositories.criminal_eurus_prophet_pg_repository import EurusProphetPgRepository
+from sherlock_homes.app.ports.output.criminal_eurus_prophet_repository import EurusProphetRepository
 from tailor.core.matrix.grid_oracle_database_manager import get_db
-from tailor.apps.sherlock_homes.app.ports.input.criminal_eurus_prophet_use_case import EurusProphetUseCase
-from tailor.apps.sherlock_homes.app.use_cases.criminal_eurus_prophet_interactor import EurusProphetInteractor
+from sherlock_homes.app.ports.input.criminal_eurus_prophet_use_case import EurusProphetUseCase
+from sherlock_homes.app.use_cases.criminal_eurus_prophet_interactor import EurusProphetInteractor
 
 '''
 캐릭터: 유라루스 홈즈 (Eurus)

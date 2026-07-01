@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.police_lestrade_adapter_schema import LestradeAdapterSchema
-from tailor.apps.sherlock_homes.app.dtos.police_lestrade_adapter_dto import LestradeAdapterQuery, LestradeAdapterResponse
-from tailor.apps.sherlock_homes.app.ports.input.police_lestrade_adapter_use_case import LestradeAdapterUseCase
-from tailor.apps.sherlock_homes.app.ports.output.police_lestrade_adapter_repository import LestradeAdapterRepository
+from sherlock_homes.adapter.inbound.api.schemas.police_lestrade_adapter_schema import LestradeAdapterSchema
+from sherlock_homes.app.dtos.police_lestrade_adapter_dto import LestradeAdapterQuery, LestradeAdapterResponse
+from sherlock_homes.app.ports.input.police_lestrade_adapter_use_case import LestradeAdapterUseCase
+from sherlock_homes.app.ports.output.police_lestrade_adapter_repository import LestradeAdapterRepository
 
 
 class LestradeAdapterInteractor(LestradeAdapterUseCase):

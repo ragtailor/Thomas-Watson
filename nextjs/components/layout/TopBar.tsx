@@ -83,7 +83,7 @@ export function TopBar() {
             role="dialog"
             aria-modal="true"
             aria-label="모바일 메뉴"
-            className="fixed bottom-0 left-0 top-0 z-50 flex w-[min(85vw,300px)] flex-col overflow-y-auto bg-white shadow-xl dark:bg-[#111111] md:hidden"
+            className="fixed bottom-0 left-0 top-0 z-50 flex w-[min(85vw,208px)] flex-col overflow-y-auto bg-white shadow-xl dark:bg-[#111111] md:hidden"
           >
             {/* 드로어 헤더 */}
             <div className="flex h-12 shrink-0 items-center justify-between border-b border-neutral-100 px-4 dark:border-gray-800">

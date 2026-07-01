@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_moriarty_disruptor_schema import MoriartyDisruptorSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_moriarty_disruptor_dto import MoriartyDisruptorResponse
-from tailor.apps.sherlock_homes.app.ports.input.criminal_moriarty_disruptor_use_case import MoriartyDisruptorUseCase
-from tailor.apps.sherlock_homes.dependencies.criminal_moriarty_disruptor_provider import get_moriarty_disruptor_use_case
+from sherlock_homes.adapter.inbound.api.schemas.criminal_moriarty_disruptor_schema import MoriartyDisruptorSchema
+from sherlock_homes.app.dtos.criminal_moriarty_disruptor_dto import MoriartyDisruptorResponse
+from sherlock_homes.app.ports.input.criminal_moriarty_disruptor_use_case import MoriartyDisruptorUseCase
+from sherlock_homes.dependencies.criminal_moriarty_disruptor_provider import get_moriarty_disruptor_use_case
 
 '''
 모리어티 (Moriarty)

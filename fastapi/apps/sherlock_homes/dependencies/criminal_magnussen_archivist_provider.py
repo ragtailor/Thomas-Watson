@@ -1,11 +1,11 @@
-from fastapi import Depends
+﻿from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from tailor.apps.sherlock_homes.adapter.outbound.pg.criminal_magnussen_archivist_pg_repository import MagnussenArchivistPgRepository
-from tailor.apps.sherlock_homes.app.ports.output.criminal_magnussen_archivist_repository import MagnussenArchivistRepository
+from sherlock_homes.adapter.outbound.repositories.criminal_magnussen_archivist_pg_repository import MagnussenArchivistPgRepository
+from sherlock_homes.app.ports.output.criminal_magnussen_archivist_repository import MagnussenArchivistRepository
 from tailor.core.matrix.grid_oracle_database_manager import get_db
-from tailor.apps.sherlock_homes.app.ports.input.criminal_magnussen_archivist_use_case import MagnussenArchivistUseCase
-from tailor.apps.sherlock_homes.app.use_cases.criminal_magnussen_archivist_interactor import MagnussenArchivistInteractor
+from sherlock_homes.app.ports.input.criminal_magnussen_archivist_use_case import MagnussenArchivistUseCase
+from sherlock_homes.app.use_cases.criminal_magnussen_archivist_interactor import MagnussenArchivistInteractor
 
 '''
 캐릭터: 마그누센 (Magnussen)

@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_magnussen_archivist_schema import MagnussenArchivistSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_magnussen_archivist_dto import MagnussenArchivistResponse
-from tailor.apps.sherlock_homes.app.ports.input.criminal_magnussen_archivist_use_case import MagnussenArchivistUseCase
-from tailor.apps.sherlock_homes.dependencies.criminal_magnussen_archivist_provider import get_magnussen_archivist_use_case
+from sherlock_homes.adapter.inbound.api.schemas.criminal_magnussen_archivist_schema import MagnussenArchivistSchema
+from sherlock_homes.app.dtos.criminal_magnussen_archivist_dto import MagnussenArchivistResponse
+from sherlock_homes.app.ports.input.criminal_magnussen_archivist_use_case import MagnussenArchivistUseCase
+from sherlock_homes.dependencies.criminal_magnussen_archivist_provider import get_magnussen_archivist_use_case
 
 '''
 마그누센 (Magnussen)

@@ -26,6 +26,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from core.matrix.grid_oracle_database_manager import dispose_engine, get_db, init_engine, create_all_tables
 from tailor.apps.titanic.adapter.inbound.api import titanic_router
 from star_craft.adapter.inbound.api import star_craft_router
+from sherlock_homes.adapter.inbound.api import sherlock_homes_router
 
 
 def _configure_logging() -> None:
@@ -67,6 +68,7 @@ app.add_middleware(
 
 app.include_router(titanic_router, prefix="/api")
 app.include_router(star_craft_router, prefix="/api")
+app.include_router(sherlock_homes_router, prefix="/api")
 
 @app.get("/")
 def read_root():

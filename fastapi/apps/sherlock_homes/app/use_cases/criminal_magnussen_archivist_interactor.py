@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from tailor.apps.sherlock_homes.adapter.inbound.api.schemas.criminal_magnussen_archivist_schema import MagnussenArchivistSchema
-from tailor.apps.sherlock_homes.app.dtos.criminal_magnussen_archivist_dto import MagnussenArchivistQuery, MagnussenArchivistResponse
-from tailor.apps.sherlock_homes.app.ports.input.criminal_magnussen_archivist_use_case import MagnussenArchivistUseCase
-from tailor.apps.sherlock_homes.app.ports.output.criminal_magnussen_archivist_repository import MagnussenArchivistRepository
+from sherlock_homes.adapter.inbound.api.schemas.criminal_magnussen_archivist_schema import MagnussenArchivistSchema
+from sherlock_homes.app.dtos.criminal_magnussen_archivist_dto import MagnussenArchivistQuery, MagnussenArchivistResponse
+from sherlock_homes.app.ports.input.criminal_magnussen_archivist_use_case import MagnussenArchivistUseCase
+from sherlock_homes.app.ports.output.criminal_magnussen_archivist_repository import MagnussenArchivistRepository
 
 
 class MagnussenArchivistInteractor(MagnussenArchivistUseCase):
