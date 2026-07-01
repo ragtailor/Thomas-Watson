@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.criminal_moriarty_disruptor_dto import MoriartyDisruptorQuery, MoriartyDisruptorResponse
 
 
-class MoriartyDisruptorRepository(ABC):
+class MoriartyDisruptorPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MoriartyDisruptorQuery) -> MoriartyDisruptorResponse:

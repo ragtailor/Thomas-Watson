@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.criminal_magnussen_archivist_dto import MagnussenArchivistQuery, MagnussenArchivistResponse
 
 
-class MagnussenArchivistRepository(ABC):
+class MagnussenArchivistPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MagnussenArchivistQuery) -> MagnussenArchivistResponse:

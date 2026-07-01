@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.detective_watson_watcher_dto import WatsonWatcherQuery, WatsonWatcherResponse
 
 
-class WatsonWatcherRepository(ABC):
+class WatsonWatcherPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: WatsonWatcherQuery) -> WatsonWatcherResponse:

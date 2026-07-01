@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.detective_mrshudson_scheduler_dto import MrshudsonSchedulerQuery, MrshudsonSchedulerResponse
 
 
-class MrshudsonSchedulerRepository(ABC):
+class MrshudsonSchedulerPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MrshudsonSchedulerQuery) -> MrshudsonSchedulerResponse:

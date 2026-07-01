@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.criminal_irene_ilustrator_dto import IreneIlustratorQuery, IreneIlustratorResponse
 
 
-class IreneIlustratorRepository(ABC):
+class IreneIlustratorPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: IreneIlustratorQuery) -> IreneIlustratorResponse:

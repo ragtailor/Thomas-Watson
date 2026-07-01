@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.police_lestrade_adapter_dto import LestradeAdapterQuery, LestradeAdapterResponse
 
 
-class LestradeAdapterRepository(ABC):
+class LestradeAdapterPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: LestradeAdapterQuery) -> LestradeAdapterResponse:

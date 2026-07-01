@@ -1,8 +1,8 @@
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from sherlock_homes.adapter.outbound.repositories.detective_mrshudson_scheduler_pg_repository import MrshudsonSchedulerPgRepository
-from sherlock_homes.app.ports.output.detective_mrshudson_scheduler_repository import MrshudsonSchedulerRepository
+from sherlock_homes.adapter.outbound.repositories.detective_mrshudson_scheduler_repository import MrshudsonSchedulerRepository
+from sherlock_homes.app.ports.output.detective_mrshudson_scheduler_port import MrshudsonSchedulerPort
 from tailor.core.matrix.grid_oracle_database_manager import get_db
 from sherlock_homes.app.ports.input.detective_mrshudson_scheduler_use_case import MrshudsonSchedulerUseCase
 from sherlock_homes.app.use_cases.detective_mrshudson_scheduler_interactor import MrshudsonSchedulerInteractor
@@ -17,5 +17,5 @@ from sherlock_homes.app.use_cases.detective_mrshudson_scheduler_interactor impor
 def get_mrshudson_scheduler_use_case(
         db: AsyncSession = Depends(get_db)
 ) -> MrshudsonSchedulerUseCase:
-    repository: MrshudsonSchedulerRepository = MrshudsonSchedulerPgRepository(session=db)
+    repository: MrshudsonSchedulerPort = MrshudsonSchedulerRepository(session=db)
     return MrshudsonSchedulerInteractor(repository=repository)

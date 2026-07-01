@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.police_anderson_collector_dto import AndersonCollectorQuery, AndersonCollectorResponse
 
 
-class AndersonCollectorRepository(ABC):
+class AndersonCollectorPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: AndersonCollectorQuery) -> AndersonCollectorResponse:

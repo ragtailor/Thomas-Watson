@@ -1,8 +1,8 @@
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from sherlock_homes.adapter.outbound.repositories.detective_holmes_judge_pg_repository import HolmesJudgePgRepository
-from sherlock_homes.app.ports.output.detective_holmes_judge_repository import HolmesJudgeRepository
+from sherlock_homes.adapter.outbound.repositories.detective_holmes_judge_repository import HolmesJudgeRepository
+from sherlock_homes.app.ports.output.detective_holmes_judge_port import HolmesJudgePort
 from tailor.core.matrix.grid_oracle_database_manager import get_db
 from sherlock_homes.app.ports.input.detective_holmes_judge_use_case import HolmesJudgeUseCase
 from sherlock_homes.app.use_cases.detective_holmes_judge_interactor import HolmesJudgeInteractor
@@ -17,5 +17,5 @@ from sherlock_homes.app.use_cases.detective_holmes_judge_interactor import Holme
 def get_holmes_judge_use_case(
         db: AsyncSession = Depends(get_db)
 ) -> HolmesJudgeUseCase:
-    repository: HolmesJudgeRepository = HolmesJudgePgRepository(session=db)
+    repository: HolmesJudgePort = HolmesJudgeRepository(session=db)
     return HolmesJudgeInteractor(repository=repository)

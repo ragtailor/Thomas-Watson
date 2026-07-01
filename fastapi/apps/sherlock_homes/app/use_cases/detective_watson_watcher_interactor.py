@@ -3,12 +3,12 @@ from __future__ import annotations
 from sherlock_homes.adapter.inbound.api.schemas.detective_watson_watcher_schema import WatsonWatcherSchema
 from sherlock_homes.app.dtos.detective_watson_watcher_dto import WatsonWatcherQuery, WatsonWatcherResponse
 from sherlock_homes.app.ports.input.detective_watson_watcher_use_case import WatsonWatcherUseCase
-from sherlock_homes.app.ports.output.detective_watson_watcher_repository import WatsonWatcherRepository
+from sherlock_homes.app.ports.output.detective_watson_watcher_port import WatsonWatcherPort
 
 
 class WatsonWatcherInteractor(WatsonWatcherUseCase):
 
-    def __init__(self, repository: WatsonWatcherRepository):
+    def __init__(self, repository: WatsonWatcherPort):
         self.repository = repository
 
     async def introduce_myself(self, schema: WatsonWatcherSchema) -> WatsonWatcherResponse:

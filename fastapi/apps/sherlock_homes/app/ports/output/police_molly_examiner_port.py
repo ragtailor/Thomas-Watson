@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from sherlock_homes.app.dtos.police_molly_examiner_dto import MollyExaminerQuery, MollyExaminerResponse
 
 
-class MollyExaminerRepository(ABC):
+class MollyExaminerPort(ABC):
 
     @abstractmethod
     def introduce_myself(self, query: MollyExaminerQuery) -> MollyExaminerResponse:

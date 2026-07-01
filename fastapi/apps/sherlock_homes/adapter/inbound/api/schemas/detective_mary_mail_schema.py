@@ -20,3 +20,26 @@ class MaryMailSchema(BaseModel):
             }
         }
     }
+
+
+class MaryMailReceiveSchema(BaseModel):
+    '''n8n HTTP Request 노드가 POST로 전송하는 Gmail 메일 수신 스키마'''
+
+    subject: str = Field("", description="메일 제목")
+    from_: str = Field("", alias="from", description="발신자 이메일")
+    to: str = Field("", description="수신자 이메일")
+    preview: str = Field("", description="본문 미리보기 (snippet)")
+    message_id: str = Field("", alias="messageId", description="Gmail 메시지 ID")
+
+    model_config = {
+        "populate_by_name": True,
+        "json_schema_extra": {
+            "example": {
+                "subject": "안녕하세요, 문의드립니다",
+                "from": "client@example.com",
+                "to": "taylor@ragtailor.com",
+                "preview": "안녕하세요. 이번 분기 실적 보고서 관련하여...",
+                "messageId": "18abc123def456"
+            }
+        }
+    }

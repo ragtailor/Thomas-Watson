@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
-from sherlock_homes.adapter.inbound.api.schemas.detective_mary_mail_schema import MaryMailSchema
-from sherlock_homes.app.dtos.detective_mary_mail_dto import MaryMailResponse
+from sherlock_homes.adapter.inbound.api.schemas.detective_mary_mail_schema import MaryMailSchema, MaryMailReceiveSchema
+from sherlock_homes.app.dtos.detective_mary_mail_dto import MaryMailResponse, MaryMailReceiveResponse
 from sherlock_homes.app.ports.input.detective_mary_mail_use_case import MaryMailUseCase
 from sherlock_homes.dependencies.detective_mary_mail_provider import get_mary_mail_use_case
 
@@ -26,13 +26,10 @@ async def introduce_myself(
         )
     )
 
-@mary_mail_router.get("/receive")
+
+@mary_mail_router.post("/receive")
 async def receive_mail(
+    schema: MaryMailReceiveSchema,
     mary: MaryMailUseCase = Depends(get_mary_mail_use_case)
-) -> MaryMailResponse:
-    return await mary.receive_mail(
-        MaryMailSchema(
-            id=12,
-            content="메리 왓슨 (Mary)"
-        )
-    )
+) -> MaryMailReceiveResponse:
+    return await mary.receive_mail(schema)

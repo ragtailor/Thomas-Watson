@@ -1,8 +1,8 @@
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from sherlock_homes.adapter.outbound.repositories.detective_mary_mail_pg_repository import MaryMailPgRepository
-from sherlock_homes.app.ports.output.detective_mary_mail_repository import MaryMailRepository
+from sherlock_homes.adapter.outbound.repositories.detective_mary_mail_repository import MaryMailRepository
+from sherlock_homes.app.ports.output.detective_mary_mail_port import MaryMailPort
 from tailor.core.matrix.grid_oracle_database_manager import get_db
 from sherlock_homes.app.ports.input.detective_mary_mail_use_case import MaryMailUseCase
 from sherlock_homes.app.use_cases.detective_mary_mail_interactor import MaryMailInteractor
@@ -17,5 +17,5 @@ from sherlock_homes.app.use_cases.detective_mary_mail_interactor import MaryMail
 def get_mary_mail_use_case(
         db: AsyncSession = Depends(get_db)
 ) -> MaryMailUseCase:
-    repository: MaryMailRepository = MaryMailPgRepository(session=db)
+    repository: MaryMailPort = MaryMailRepository(session=db)
     return MaryMailInteractor(repository=repository)

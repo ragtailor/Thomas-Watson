@@ -17,3 +17,18 @@ class MaryMailQuery:
 class MaryMailResponse:
     id: int
     name: str
+
+
+@dataclass(frozen=True)
+class MaryMailReceiveQuery:
+    subject: str
+    from_: str
+    to: str
+    preview: str
+    message_id: str
+
+
+@dataclass(frozen=True)
+class MaryMailReceiveResponse:
+    message_id: str
+    status: str
