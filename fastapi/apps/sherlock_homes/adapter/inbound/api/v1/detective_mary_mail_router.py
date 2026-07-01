@@ -32,4 +32,5 @@ async def receive_mail(
     schema: MaryMailReceiveSchema,
     mary: MaryMailUseCase = Depends(get_mary_mail_use_case)
 ) -> MaryMailReceiveResponse:
+    
     return await mary.receive_mail(schema)
